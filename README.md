@@ -18,7 +18,7 @@ pip install -r req.txt
 ```
 ## File .env (Workspace Data)
 - Buat file .env dalam root folder
-```notepad .env / touch .env```
+```notepad .env / touch .env / echo "PROJEK A" >> .env```
 - pastiin buat token di [botfather](https://t.me/BotFather) dan daftarkan id bot nya di .env ```TELEGRAM_BOT_TOKEN=xxxx```
 - daftarkan mysql kalian di .env ```DATABASE_URL=mysql://user:pass@ip_lokal:port_db/nama_db```
 
