@@ -14,18 +14,21 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 db_url = os.getenv('DATABASE_URL')
-url = urlparse(db_url)
-db_config = {
-    'host': url.hostname,
-    'port': url.port,
-    'user': url.username,
-    'password': url.password
-}
+
+if db_url:
+    url = urlparse(db_url)
+    db_config = {
+        'host': url.hostname,
+        'port': url.port if url.port else 3306,  # Gunakan default port 3306 jika None
+        'user': url.username,
+        'password': url.password,
+    }
+else:
+    logger.error("DATABASE_URL tidak ditemukan dalam file .env")
+    db_config = {}
 
 # Buat Pooling DB
-cnxpool = pooling.MySQLConnectionPool(pool_name="mypool",
-                                      pool_size=5,
-                                      **db_config)
+cnxpool = pooling.MySQLConnectionPool(pool_name="mypool", pool_size=5, **db_config)
 
 def connect_db():
     try:
