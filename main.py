@@ -5,7 +5,7 @@ import os
 from src.alarm import setup_database, start, stop, cek_status_alarm, check_alarm_time, button
 from dotenv import load_dotenv
 
-# Load dotenv
+# Load dotenv file
 load_dotenv(".env")
 
 # Logging
