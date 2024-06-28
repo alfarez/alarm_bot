@@ -7,6 +7,10 @@ import mysql.connector
 from mysql.connector import pooling
 import os
 from urllib.parse import urlparse
+from dotenv import load_dotenv
+
+# Load dotenv
+load_dotenv(".env")
 
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO
