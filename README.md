@@ -2,7 +2,7 @@
 Tugas Alarm Bot + SQL
 
 ## About
-- Tugas ini menggunakan [pytelegrambot](https://github.com/python-telegram-bot/python-telegram-bot/) dan Mysql XAMPP
+- Tugas ini menggunakan [pytelegrambot](https://github.com/python-telegram-bot/python-telegram-bot/) dan [sqlite](https://github.com/sqlite/sqlite)
 
 ## Instalasi
 ```bash
@@ -13,21 +13,21 @@ git clone https://github.com/alfarez/alarm_bot.git
 python -m venv .venv
 
 # Install Dependensi
-pip install -r req.txt
+pip install -r requirement.txt
 
 ```
 ## File .env (Workspace Data)
-- Buat file .env dalam root folder
+- Buat file .env dalam root folder kalian
 ```notepad .env / touch .env / echo "PROJEK A" >> .env```
 - pastiin buat token di [botfather](https://t.me/BotFather) dan daftarkan id bot nya di .env ```TELEGRAM_BOT_TOKEN=xxxx```
-- daftarkan mysql kalian di .env ```DATABASE_URL=mysql://user:pass@ip_lokal:port_db/nama_db```
+- database nya menggunakan sqlite3 karena lebih simple
 
 ## Running
 ```bash
-python main.py
+python bot.py
 ```
 
 ## Command
-- ```/start``` inisialisasi user ke db dan buat alarm dan record dengan user tertentu
-- ```/stop``` hapus semua alarm dan menjadikan user tidak aktif
-- ```/status``` melihat alarm aktif
+- ```/start``` inisialisasi user ke db
+- ```/set``` membuat waktu alarm dalam satuan detik serta menyimpan data username, id , waktu ke db
+- ```/history``` melihat alarm yang pernah di set sebelumnya
